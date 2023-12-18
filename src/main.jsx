@@ -7,7 +7,7 @@ import { ThemeProvider } from "@material-tailwind/react";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter basename={"/aesthetic-stuff/"}>
+    <BrowserRouter basename={"aestheticstuff.store/"}>
       <ThemeProvider>
         <App />
       </ThemeProvider>
