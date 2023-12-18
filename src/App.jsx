@@ -4,7 +4,7 @@ import Dashboard from "./layouts/Dashboard";
 function App() {
   return (
     <Routes>
-      <Route index element={<Landing />} />
+      <Route path="landing" index element={<Landing />} />
       <Route path="dashboard" element={<Dashboard />} />
       <Route path="*" element={<Navigate to={"/landing/"} replace />} />
     </Routes>
