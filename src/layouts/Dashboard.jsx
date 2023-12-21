@@ -24,13 +24,23 @@ const Dashboard = () => {
   }
 
   return (
-    <div className=" w-full h-screen">
+    // <div className=" w-full h-screen">
+    //   <StickyHeader />
+    //   <div class="container mx-auto p-2 md:px-4">
+    //     <div class="flex flex-wrap">
+    //       {products.map((item, index) => {
+    //         return <ProductCard data={item} />;
+    //       })}
+    //     </div>
+    //   </div>
+    // </div>
+    <div className="bg-white">
       <StickyHeader />
-      <div class="container mx-auto p-2 md:px-4">
-        <div class="flex flex-wrap">
-          {products.map((item, index) => {
-            return <ProductCard data={item} />;
-          })}
+      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+        <div className="mt-6 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-6 xl:gap-x-8">
+          {products.map((product) => (
+            <ProductCard data={product} />
+          ))}
         </div>
       </div>
     </div>

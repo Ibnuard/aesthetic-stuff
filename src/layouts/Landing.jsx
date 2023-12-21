@@ -35,7 +35,7 @@ const Landing = () => {
         <Button
           className=" w-80 text-brown-500 border-brown-300 normal-case font-poppins focus: shadow-none"
           variant={"outlined"}
-          onClick={() => navigate("dashboard")}
+          onClick={() => navigate("products")}
         >
           Mulai Belanja
         </Button>

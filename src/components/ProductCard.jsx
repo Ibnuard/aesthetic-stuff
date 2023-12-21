@@ -1,66 +1,36 @@
 import { FormatRupiah } from "@arismun/format-rupiah";
 import { Card, CardHeader, CardBody, Button } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 export function ProductCard({ data }) {
-  const { name, imageUrl, price, priceDiscount } = data;
+  const { id, name, imageUrl, price, priceDiscount, href, color } = data;
   return (
-    <Card
-      shadow={false}
-      className=" w-1/2 md:w-1/3  lg:w-1/4 border-2 border-r-0"
-    >
-      <CardHeader shadow={false} floated={false} className=" h-64">
+    <div key={id} className="group relative">
+      <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
         <img
           src={imageUrl}
-          alt="card-image"
-          className="h-full w-full object-cover"
+          alt={name}
+          className="h-full w-full object-cover object-center lg:h-full lg:w-full"
         />
-      </CardHeader>
-      <CardBody className=" pt-2">
-        <div className="mb-2 items-center justify-between">
-          <div className=" flex items-center">
-            <div className=" flex-1 text-brown-500 font-poppins text-sm font-semibold">
-              <FormatRupiah value={price} />
-            </div>
-            <div className=" text-brown-500 font-poppins text-xs font-normal line-through">
-              <FormatRupiah value={priceDiscount} />
-            </div>
-          </div>
-          <div className=" text-sm text-brown-300 py-2">{name}</div>
-          <div className=" text-brown-500 font-poppins text-xs font-normal">
-            Gratis Ongkir*
-          </div>
+      </div>
+      <div className="mt-4 flex justify-between">
+        <div>
+          <h3 className="text-sm text-gray-700">
+            {/* <a href={href}>
+              <span aria-hidden="true" className="absolute inset-0" />
+              {name}
+            </a> */}
+            <Link to={`/products/1`}>
+              <span aria-hidden="true" className="absolute inset-0" />
+              {name}
+            </Link>
+          </h3>
+          <p className="mt-1 text-sm text-gray-500">{color || "basic"}</p>
         </div>
-        <div className=" pt-2">
-          <Button
-            size="sm"
-            fullWidth
-            color="white"
-            className="flex items-center gap-3 normal-case text-sm font-poppins font-normal"
-          >
-            <img
-              src="https://www.svgrepo.com/show/134581/whatsapp.svg"
-              alt="metamask"
-              className="h-6 w-6"
-            />
-            Pesan Sekarang
-          </Button>
-          <div className=" mt-2">
-            <Button
-              size="sm"
-              fullWidth
-              color="white"
-              className="flex items-center gap-3 normal-case text-sm font-poppins font-normal"
-            >
-              <img
-                src="https://sunrisedaycamp.org/wp-content/uploads/2022/05/tiktok-logo.svg"
-                alt="metamask"
-                className="h-6 w-6"
-              />
-              Lihat di TikTok
-            </Button>
-          </div>
-        </div>
-      </CardBody>
-    </Card>
+        <p className="text-sm font-medium text-gray-900">
+          <FormatRupiah value={price} />
+        </p>
+      </div>
+    </div>
   );
 }
